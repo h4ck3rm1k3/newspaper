@@ -8,7 +8,7 @@ Here are the instructions for setting up on debian sid.
   apt-get remove --purge libapache2-mod-php5
 
 # 
-  apt-get install php5-sqlite
+
   aptitude install cakephp cakephp-scripts
   apt-get install php5 php5-sqlite php5-mysql
   aptitude install mysql-server-5.5
@@ -17,3 +17,11 @@ Here are the instructions for setting up on debian sid.
   aptitude install apache2
   a2enmod rewrite
   service apache2 restart
+
+
+To get sqlite running :
+  apt-get install php5-sqlite
+  php5enmod pdo
+  php5enmod pdo_sqlite
+  and for some reaason this does not do anything si I had to hack it:
+  ln -vs /usr/share/php5/sqlite/*.ini /etc/php5/conf.d
