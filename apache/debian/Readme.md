@@ -9,8 +9,7 @@ Here are the instructions for setting up on debian sid.
 
 # 
 
-  aptitude install cakephp cakephp-scripts
-  apt-get install php5 php5-sqlite php5-mysql
+  aptitude install cakephp cakephp-scripts php5 php5-sqlite php5-mysql
   aptitude install mysql-server-5.5
   aptitude install php-pear php-apc php5-curl
   aptitude install libapache2-mod-php5 libapache2-mod-php5filter php5-cgi php5-fpm
@@ -25,3 +24,9 @@ To get sqlite running :
   php5enmod pdo_sqlite
   and for some reaason this does not do anything si I had to hack it:
   ln -vs /usr/share/php5/sqlite/*.ini /etc/php5/conf.d
+
+The apache config is located :
+newspaper/apache/debian/etc/apache2/sites-available/001-newspaper.conf
+this is copied into /etc/apache2/sites-available/001-newspaper.conf, 
+and then you run a2ensite 001-newspaper
+

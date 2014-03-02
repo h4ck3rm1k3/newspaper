@@ -17,3 +17,11 @@ newspaper/app/webroot$ sudo chown -R www-data app/tmp/
 
 for the debian sid specific installation instructions 
 see apache/debian/Readme.md
+
+
+Zipcode
+=======
+
+The zipcode database is loaded from the submodule from civicrm ::
+
+    mysql> source sources/civicrm/sql/zipcodes.mysql

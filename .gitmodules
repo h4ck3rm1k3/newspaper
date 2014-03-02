@@ -4,3 +4,21 @@
 [submodule "app/Plugin/DebugKit"]
 	path = app/Plugin/DebugKit
 	url = git@github.com:h4ck3rm1k3/debug_kit.git
+[submodule "sources/us-zip-codes"]
+	path = sources/us-zip-codes
+	url = https://github.com/jonmagic/us-zip-codes
+[submodule "sources/nominatim"]
+	path = sources/nominatim
+	url = git@github.com:h4ck3rm1k3/Nominatim.git
+[submodule "sources/civicrm"]
+	path = sources/civicrm
+	url = git@github.com:h4ck3rm1k3/civicrm-core.git
+[submodule "sources/ushahidi"]
+	path = sources/ushahidi
+	url = git@github.com:h4ck3rm1k3/Ushahidi_Web.git
+[submodule "sources/osm-rails"]
+	path = sources/osm-rails
+	url = git@github.com:h4ck3rm1k3/openstreetmap-website.git
+[submodule "sources/mediawiki"]
+	path = sources/mediawiki
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
