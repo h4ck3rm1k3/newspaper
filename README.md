@@ -25,3 +25,6 @@ Zipcode
 The zipcode database is loaded from the submodule from civicrm ::
 
     mysql> source sources/civicrm/sql/zipcodes.mysql
+
+ List :
+http://localhost:81/zipcodes/index
