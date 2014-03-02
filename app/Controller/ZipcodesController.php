@@ -21,7 +21,7 @@ class ZipcodesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('Paginator', 'Session', 'Filter.Filter');
 
 /**
  * index method
@@ -195,4 +195,18 @@ class ZipcodesController extends AppController {
 			$this->Session->setFlash(__('The zipcode could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+    var $filters = array(  
+        'index' => array(  
+            'Zipcode' => array(
+                'Zipcode.zip',  
+                'Zipcode.city',  
+                'Zipcode.state',  
+#            'Zipcode.city' => array('condition' => '='),  
+#            'Zipcode.state' => array('condition' => '='),  
+            ),
+        )
+    );
+    
+}

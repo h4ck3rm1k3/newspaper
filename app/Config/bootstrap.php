@@ -101,3 +101,9 @@ CakeLog::config('error', array(
   CakePHP DebugKit
 */
 CakePlugin::load('DebugKit');
+
+/*
+  Filter plugin:
+
+*/
+CakePlugin::load('Filter');

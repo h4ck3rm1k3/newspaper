@@ -22,3 +22,6 @@
 [submodule "sources/mediawiki"]
 	path = sources/mediawiki
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
+[submodule "app/Plugin/Filter"]
+	path = app/Plugin/Filter
+	url = git@github.com:h4ck3rm1k3/cakephp-filter-plugin.git

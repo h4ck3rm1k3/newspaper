@@ -1,5 +1,7 @@
 <div class="zipcodes index">
 	<h2><?php echo __('Zipcodes'); ?></h2>
+
+        <?php echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('zip'); ?></th>
