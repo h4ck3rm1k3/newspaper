@@ -368,4 +368,10 @@ Cache::config('_cake_model_', array(
 /*
   CakePHP DebugKit
 */
-Configure::write('debug', 1);
+Configure::write('debug', 2);
+
+/*
+  Routing Prefixes :
+  to use prefix routing.
+*/
+Configure::write('Routing.prefixes', array('admin'));
