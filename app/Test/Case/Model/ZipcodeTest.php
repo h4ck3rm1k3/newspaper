@@ -26,6 +26,16 @@ class ZipcodeTest extends CakeTestCase {
 		$this->Zipcode = ClassRegistry::init('Zipcode');
 	}
 
+    public function testZip() {
+        $zip = $this->Zipcode->find('first');
+        $this->assertEquals($zip["Zipcode"]['zip'],'66046');
+        //var_dump($zip);
+        //return var_dump();
+        //$this->
+        //$this->assertContains('width: 90%', $this->Zipcode);
+
+    }
+
 /**
  * tearDown method
  *
