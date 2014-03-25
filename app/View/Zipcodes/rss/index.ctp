@@ -7,9 +7,20 @@ $this->set('channelData', array(
 ));
 ?>
 
+
 <?php
 // You should import Sanitize
 App::uses('Sanitize', 'Utility');
+//debug($this);
+
+$attributes = array(
+			'namespace' => array(
+				'prefix' => 'georss',
+				'url' => 'http://www.georss.org/georss'
+
+            ///$this->Rss->setNamespace("georss", );
+			)
+		);
 
 foreach ($zipcodes as $zipcode)  {
 
@@ -23,9 +34,16 @@ foreach ($zipcodes as $zipcode)  {
         $zipcode['Zipcode']['zip'] + '.rss'
     );
 
-    echo $this->Rss->item(array(), array(
-        'title' => "Zip $city $zip",
-        'link'  => $link,
-    ));
+    $lat = $zipcode['Zipcode']['latitude'];
+    $lon = $zipcode['Zipcode']['longitude'];
+
+        // 
+    echo $this->Rss->item(
+        $attributes, 
+        array(
+            'title' => "Zip $city $zip",
+            'link'  => $link,
+            'georss:point' =>  "$lat $lon",
+        ));
 }
 ?>

@@ -33,10 +33,16 @@ class ZipcodesController extends AppController {
        	if (!isset($this->request->params['ext'])) {
             $this->layout = 'default';
         }
-        //$this->viewClass = 'Tools.Rss'
+
+
 		$this->Zipcode->recursive = 0;
 		$this->set('zipcodes', $this->Paginator->paginate());
-        $this->set('_serialize', array('zipcodes'));
+
+        if ($this->RequestHandler->isRss() ) {
+            ///$this->Rss->setNamespace("georss", 'http://www.georss.org/georss');
+            //$this->viewClass = 'Tools.Rss'
+            $this->set('_serialize', array('zipcodes'));
+        }
 	}
 
 /**
