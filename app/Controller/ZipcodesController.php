@@ -21,7 +21,7 @@ class ZipcodesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Filter.Filter');
+	public $components = array('Paginator', 'Session', 'Filter.Filter', 'RequestHandler');
 
 /**
  * index method
@@ -29,8 +29,14 @@ class ZipcodesController extends AppController {
  * @return void
  */
 	public function index() {
+ 
+       	if (!isset($this->request->params['ext'])) {
+            $this->layout = 'default';
+        }
+        //$this->viewClass = 'Tools.Rss'
 		$this->Zipcode->recursive = 0;
 		$this->set('zipcodes', $this->Paginator->paginate());
+        $this->set('_serialize', array('zipcodes'));
 	}
 
 /**

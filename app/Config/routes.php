@@ -29,6 +29,12 @@
 	CakePlugin::routes();
 
 /**
+ * Enable json data view http://book.cakephp.org/2.0/en/views/json-and-xml-views.html
+ *
+ **/
+Router::parseExtensions('json', 'geojson', 'rss', 'georss');
+
+/**
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
  */

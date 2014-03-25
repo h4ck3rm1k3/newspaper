@@ -31,3 +31,9 @@
 [submodule "app/Plugin/Tools"]
 	path = app/Plugin/Tools
 	url = https://github.com/h4ck3rm1k3/cakephp-tools.git
+[submodule "app/webroot/js/openlayers"]
+	path = app/webroot/js/openlayers
+	url = git@github.com:h4ck3rm1k3/openlayers.git
+[submodule "app/Plugin/FileManager"]
+	path = app/Plugin/FileManager
+	url = https://github.com/shahonseven/FileManager.git
