@@ -104,6 +104,15 @@ CakePlugin::load('DebugKit');
 
 /*
   Filter plugin:
-
 */
 CakePlugin::load('Filter');
+
+/*
+  OSM plugin:
+*/
+CakePlugin::load('CakeOSM');
+
+/*
+Tools plugin:
+*/
+CakePlugin::load('Tools', array('bootstrap' => true));

@@ -14,7 +14,7 @@ class ZipcodesController extends AppController {
  *
  * @var array
  */
-	public $helpers = array('Text', 'Js');
+	public $helpers = array('Text', 'Js', 'CakeOSM.OpenLayers');
 
 /**
  * Components

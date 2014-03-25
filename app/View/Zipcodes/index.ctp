@@ -2,6 +2,14 @@
 	<h2><?php echo __('Zipcodes'); ?></h2>
 
         <?php echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); ?>
+        <?php echo $this->OpenLayers->map(
+        array(
+            'lat' => '43.005895',
+            'long' => '-71.013202',
+            'zoom' => 5,
+            'type' => "cloudmade",
+        )); ?>
+
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('zip'); ?></th>
@@ -14,6 +22,17 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($zipcodes as $zipcode): ?>
+
+        <?php 
+$marker = array(array(
+    'lat' => $zipcode['Zipcode']['latitude'],
+    'long' => $zipcode['Zipcode']['longitude'],
+    'title' => "Zip" .   $zipcode['Zipcode']['zip'] . 
+    $zipcode['Zipcode']['city'] .
+    $zipcode['Zipcode']['state']
+));
+echo $this->OpenLayers->addMarkers($marker, null, "cloudmade"); ?>
+
 	<tr>
 		<td><?php echo h($zipcode['Zipcode']['zip']); ?>&nbsp;</td>
 		<td><?php echo h($zipcode['Zipcode']['city']); ?>&nbsp;</td>

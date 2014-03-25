@@ -25,3 +25,9 @@
 [submodule "app/Plugin/Filter"]
 	path = app/Plugin/Filter
 	url = git@github.com:h4ck3rm1k3/cakephp-filter-plugin.git
+[submodule "app/Plugin/CakeOSM"]
+	path = app/Plugin/CakeOSM
+	url = git@github.com:h4ck3rm1k3/CakeOSM.git
+[submodule "app/Plugin/Tools"]
+	path = app/Plugin/Tools
+	url = https://github.com/h4ck3rm1k3/cakephp-tools.git
