@@ -1,14 +1,20 @@
 <div class="zipcodes index">
 	<h2><?php echo __('Zipcodes'); ?></h2>
+<?php 
 
-        <?php echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); ?>
-        <?php echo $this->OpenLayers->map(
-        array(
-            'lat' => '43.005895',
-            'long' => '-71.013202',
-            'zoom' => 5,
-            // 'type' => "cloudmade",
-        )); ?>
+//$href= Router::url( $this->here, true );
+//$href = str_replace('zipcodes/index','zipcodes/index.rss',$href);
+//debug($href);
+echo $this->OpenLayers->map(
+array(
+//    'georss' => 'http://localhost:81/zipcodes/index.rss',
+    'lat' => '43.005895',
+    'long' => '-71.013202',
+    'zoom' => 5,
+)); ?>
+
+<?php echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); 
+?>
 
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -31,7 +37,7 @@ $marker = array(array(
     $zipcode['Zipcode']['city'] .
     $zipcode['Zipcode']['state']
 ));
-echo $this->OpenLayers->addMarkers($marker, null, "cloudmade"); ?>
+                echo $this->OpenLayers->addMarkers($marker); ?>
 
 	<tr>
 		<td><?php echo h($zipcode['Zipcode']['zip']); ?>&nbsp;</td>
@@ -69,3 +75,4 @@ echo $this->OpenLayers->addMarkers($marker, null, "cloudmade"); ?>
 		<li><?php echo $this->Html->link(__('New Zipcode'), array('action' => 'add')); ?></li>
 	</ul>
 </div>
+

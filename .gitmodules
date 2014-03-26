@@ -37,3 +37,6 @@
 [submodule "app/Plugin/FileManager"]
 	path = app/Plugin/FileManager
 	url = https://github.com/shahonseven/FileManager.git
+[submodule "app/webroot/js/jquery"]
+	path = app/webroot/js/jquery
+	url = git@github.com:h4ck3rm1k3/jquery.git

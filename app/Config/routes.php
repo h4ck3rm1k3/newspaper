@@ -22,6 +22,12 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+
+Router::connect('/zipcodes/index.rss/:page', array(
+    'controller' => 'zipcodes',
+    'url' => array('ext' => 'rss'),
+    'action' => 'index_rss'));
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
@@ -32,7 +38,8 @@
  * Enable json data view http://book.cakephp.org/2.0/en/views/json-and-xml-views.html
  *
  **/
-Router::parseExtensions('json', 'geojson', 'rss', 'georss');
+Router::parseExtensions('json', 'rss');
+# 'geojson' 'georss'
 
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use

@@ -14,7 +14,10 @@ class ZipcodesController extends AppController {
  *
  * @var array
  */
-	public $helpers = array('Text', 'Js', 'CakeOSM.OpenLayers');
+	public $helpers = array('Text', 
+    'Js' => array('Jquery'), 
+    'CakeOSM.OpenLayers');
+
 
 /**
  * Components
@@ -22,6 +25,8 @@ class ZipcodesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session', 'Filter.Filter', 'RequestHandler');
+
+    
 
 /**
  * index method
@@ -36,13 +41,28 @@ class ZipcodesController extends AppController {
 
 
 		$this->Zipcode->recursive = 0;
+
+        if ($this->RequestHandler->isRss() ) {
+            
+
+        }
+
 		$this->set('zipcodes', $this->Paginator->paginate());
 
         if ($this->RequestHandler->isRss() ) {
-            ///$this->Rss->setNamespace("georss", 'http://www.georss.org/georss');
+
+
             //$this->viewClass = 'Tools.Rss'
             $this->set('_serialize', array('zipcodes'));
         }
+	}
+
+	public function index_rss() {
+        //$this->autoRender = false; 
+        //$this->request->onlyAllow('ajax'); 
+		$this->Zipcode->recursive = 0;
+		$this->set('zipcodes', $this->Paginator->paginate());
+        $this->set('_serialize', array('zipcodes'));
 	}
 
 /**

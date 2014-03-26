@@ -1,4 +1,12 @@
 <?php // -*-php-*-
+
+$this->Paginator->options(
+    array(
+        'update' => '#content',
+        'evalScripts' => true
+    )
+);
+
 $this->set('channelData', array(
     'title' => __("ZipCodes"),
     'link' => $this->Html->url('/', true),
@@ -46,4 +54,6 @@ foreach ($zipcodes as $zipcode)  {
             'georss:point' =>  "$lat $lon",
         ));
 }
+
+echo $this->Js->writeBuffer();
 ?>
