@@ -1,20 +1,11 @@
+
 <div class="zipcodes index">
 	<h2><?php echo __('Zipcodes'); ?></h2>
-<?php 
 
-//$href= Router::url( $this->here, true );
-//$href = str_replace('zipcodes/index','zipcodes/index.rss',$href);
-//debug($href);
-echo $this->OpenLayers->map(
-array(
-//    'georss' => 'http://localhost:81/zipcodes/index.rss',
-    'lat' => '43.005895',
-    'long' => '-71.013202',
-    'zoom' => 5,
-)); ?>
-
-<?php echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); 
+<?php
+echo $this->Filter->filterForm('ZipCode', array('legend' => 'Search')); 
 ?>
+
 
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -26,18 +17,9 @@ array(
 			<th><?php echo $this->Paginator->sort('timezone'); ?></th>
 			<th><?php echo $this->Paginator->sort('dst'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
+
 	</tr>
 	<?php foreach ($zipcodes as $zipcode): ?>
-
-        <?php 
-$marker = array(array(
-    'lat' => $zipcode['Zipcode']['latitude'],
-    'long' => $zipcode['Zipcode']['longitude'],
-    'title' => "Zip" .   $zipcode['Zipcode']['zip'] . 
-    $zipcode['Zipcode']['city'] .
-    $zipcode['Zipcode']['state']
-));
-                echo $this->OpenLayers->addMarkers($marker); ?>
 
 	<tr>
 		<td><?php echo h($zipcode['Zipcode']['zip']); ?>&nbsp;</td>
@@ -73,6 +55,28 @@ $marker = array(array(
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Zipcode'), array('action' => 'add')); ?></li>
+		<li>
+<?php 
+$markers = array();
+foreach ($zipcodes as $zipcode) {
+    array_push ($markers,
+    array(
+        'lat' => $zipcode['Zipcode']['latitude'],
+        'long' => $zipcode['Zipcode']['longitude'],
+        'title' => "Zip" .   $zipcode['Zipcode']['zip'] . 
+        $zipcode['Zipcode']['city'] .
+        $zipcode['Zipcode']['state']
+    ));
+}
+echo $this->OpenLayers->map(
+    array(
+        'lat' => '43.005895',
+        'long' => '-71.013202',
+        'zoom' => 5,
+        'markers' => $markers,
+    )); 
+?>
+</li>
 	</ul>
 </div>
 
